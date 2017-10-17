@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <v-head></v-head>
+    <v-head :seller="seller"></v-head>
     <div class="tabs">
       <div class="tab-item"><router-link to="/goods">商品</router-link></div>
       <div class="tab-item"><router-link to="/ratings">评论</router-link></div>
@@ -23,6 +23,24 @@ export default {
       goods,
       ratings,
       seller
+    },
+    data (){
+      return {
+        seller:{}
+      }
+    },
+    mounted () {
+      this.$nextTick(
+        () => {
+          this.$http.get(`/api/seller`).then(res=>{
+            if (res.data.errno ===0 ){
+              console.log(res.data.data)
+              this.seller=res.data.data
+
+          }
+          })
+        }
+      )
     }
 }
 </script>

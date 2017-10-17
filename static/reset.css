@@ -87,3 +87,8 @@ a, button, input, textarea {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
 }
+.img-responsive{
+  width: 100%;
+  height:auto;
+  display: block;
+}
